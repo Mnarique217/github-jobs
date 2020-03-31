@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SearchComponent } from './Pages/search/search.component';
 import { SearchDetailsComponent } from './Components/search-details/search-details.component';
+import { SearchItemComponent } from './Components/search-item/search-item.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
     FooterComponent,
     NavbarComponent,
     SearchComponent,
-    SearchDetailsComponent
+    SearchDetailsComponent,
+    SearchItemComponent
   ],
   imports: [
     BrowserModule,
