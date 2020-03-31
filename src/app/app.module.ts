@@ -7,6 +7,8 @@ import { HomeComponent } from './Pages/home/home.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { SearchComponent } from './Pages/search/search.component';
+import { SearchDetailsComponent } from './Components/search-details/search-details.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -17,7 +19,9 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchComponent,
+    SearchDetailsComponent
   ],
   imports: [
     BrowserModule,
