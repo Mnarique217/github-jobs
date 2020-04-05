@@ -11,6 +11,8 @@ import { SearchComponent } from './Pages/search/search.component';
 import { SearchDetailsComponent } from './Components/search-details/search-details.component';
 import { SearchItemComponent } from './Components/search-item/search-item.component';
 import { ImagePipe } from './pipes/image.pipe';
+import { LoginComponent } from './Pages/login/login.component';
+import { RegisterComponent } from './Pages/register/register.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -26,6 +28,8 @@ const appRoutes: Routes = [
     SearchDetailsComponent,
     SearchItemComponent,
     ImagePipe
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
