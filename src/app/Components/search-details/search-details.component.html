@@ -1,28 +1,3 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-primary radius">
-    <img src="../../../assets/jobsearch-white.PNG" width="64" alt="">
-    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-
 <div class="container radius">
 
     <div class="row">
@@ -33,11 +8,11 @@
 
     <div class="row">
         <div class="col-6">
-            <img src="../../../assets/wind.png" class="radius border-gray img" alt="">
+            <img src="{{job.company_logo | image}}" class="radius img" alt="">
         </div>
 
         <div class="col-6">
-            <button type="button" class="btn btn-success btn-sm radius">Apply</button>
+            <button type="button" (click)="apply(job.how_to_apply)" class="btn btn-success btn-sm radius">Apply</button>
             <button type="button" class="btn btn-primary btn-sm radius">Save</button>
         </div>
     </div>
@@ -49,7 +24,7 @@
                     <label class="subtitle">Title</label>
                 </div>
                 <div class="col-6">
-                    <label class="value">Software Developer</label>
+                    <label class="value">{{job.title}}</label>
                 </div>
             </div>
 
@@ -58,7 +33,7 @@
                     <label class="subtitle">Location</label>
                 </div>
                 <div class="col-6">
-                    <label class="value">Boston,MA</label>
+                    <label class="value">{{job.location}}</label>
                 </div>
             </div>
 
@@ -67,7 +42,7 @@
                     <label class="subtitle">Type</label>
                 </div>
                 <div class="col-6">
-                    <label class="value">Full Time</label>
+                    <label class="value">{{job.type}}</label>
                 </div>
             </div>
 
@@ -76,7 +51,7 @@
                     <label class="subtitle">Company</label>
                 </div>
                 <div class="col-6">
-                    <label class="value">Cubic</label>
+                    <label class="value">{{job.company}}</label>
                 </div>
             </div>
 
@@ -87,74 +62,7 @@
         <div class="col-12">
             <label class="subtitle"><strong>Description</strong></label>
         </div>
-        <div class="col-12 description">
-            <p>The growing interest of leading international brands challenges us to continuously step up our game, and
-                therefore we are looking for an Amsterdam based:</p>
-            <p><strong>Director of Interactive</strong></p>
-            <p>We are looking for an inspiring, tech savvy team player to become a leading member of a growing
-                Interactive team. You will be responsible for the Interactive Development team with an initial focus on
-                professionalizing and growing the department. We look for a leader who leads by example and knows how to
-                get things done. Together with our 3D Studio, the teams work on high-end, interactive applications that
-                will exceed expectations and define new paths for clients like Adidas, Ralph Lauren, Electrolux, Yamaha,
-                Honda and Heineken.</p>
-            <p>As well as our in house developed software platforms and interactive web-based applications, we develop
-                solutions and native apps for various platforms including iOS and Android mobile devices, harnessing new
-                techniques and technologies such as AR (Augmented Reality) and advanced real-time &amp; pre-rendered 3D.
-            </p>
-            <p><strong>Responsibilities</strong></p>
-            <ul>
-                <li>Leading and motivating the team, (re) designing processes, measuring productivity, managing en
-                    expanding offshore activities, initiating the support department.</li>
-                <li>Planning and resource allocation of the total development team.</li>
-                <li>Together with the CTO, you define INDG’s development roadmap.</li>
-                <li>Together with the Creative Director, you will ensure the high-quality standards for our designs.
-                </li>
-            </ul>
-            <p><strong>Professional Skills</strong></p>
-            <ul>
-                <li>A solid track record of experience working through the design, development, release cycle, and
-                    delivering of interactive applications including experience as a Lead (Interactive) Developer or
-                    managing a (project) team of software developers.</li>
-                <li>Eye for the User Experience and smart interaction design.</li>
-                <li>Experience with managing (partly) outsourced development.</li>
-                <li>Strong understanding of the software development cycle, a vision on how modern application
-                    development should be organised.</li>
-                <li>Experience with interactive development of web based and mobile applications.</li>
-                <li>Passion for quality and continuous improvement of processes and software.</li>
-                <li>Experienced in programming, broad technology stack.</li>
-                <li>Experience with (pure) MVC framework, Continuous Integration, (automated) testing, version control
-                    systems.</li>
-                <li>Knowledge of 3D libraries such as WebGL, OpenGL ES.</li>
-            </ul>
-            <p><strong>Interpersonal skills</strong></p>
-            <ul>
-                <li>Self-motivated, team player, action and result oriented.</li>
-                <li>Well organized, good communication and reporting skills.</li>
-            </ul>
-            <p><strong>Advantageous skills</strong></p>
-            <ul>
-                <li>Experience with 3D engines (like Unity).</li>
-                <li>Experience with the development of native apps.</li>
-            </ul>
-            <p><strong>What do we offer?</strong>With the role being located in the heart of Amsterdam, our environment
-                and our creative space are very important to us. Please find below some of the perks:</p>
-            <ul>
-                <li>A competitive salary.</li>
-                <li>Paid annual leave.</li>
-                <li>Get fit schemes.</li>
-                <li>Healthcare discount.</li>
-                <li>Free fruit, snacks, coffee, beer provided (including vegan/vegetarian options).</li>
-                <li>5-day catered lunch scheme option to opt in or out.</li>
-                <li>Dinner options each evening those staying later than working hours.</li>
-                <li>Friday socials beer and pizza, monthly's and more.</li>
-            </ul>
-            <p><strong>The procedure</strong>Please send your resume and cover letter via the <a
-                    href="https://ltpx.nl/Z5yJu3Q"><strong>application form</strong></a>. If you have any questions,
-                please don’t hesitate to contact our HR Department at +31 (0) 20 488 9696 or through <a
-                    href="mailto:jobs@indg.com"><strong>jobs@indg.com</strong></a>.</p>
-            <p><em>Agency calls are not appreciated.</em><img
-                    src="https://camo.githubusercontent.com/ea17d0f4c33e3107f83ebf326c19ffe154f7c8db/68747470733a2f2f62636f6e74726f6c2e62726f636b6d657965722e6e6c2f747261636b2e7068703f6f7264657269643d313630323031">
-            </p>
+        <div class="col-12 description" [innerHTML]="job.description">
         </div>
     </div>
 

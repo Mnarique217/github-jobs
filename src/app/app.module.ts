@@ -11,6 +11,7 @@ import { SearchComponent } from './Pages/search/search.component';
 import { SearchDetailsComponent } from './Components/search-details/search-details.component';
 import { SearchItemComponent } from './Components/search-item/search-item.component';
 import { ImagePipe } from './pipes/image.pipe';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

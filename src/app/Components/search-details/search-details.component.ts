@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-details',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-details.component.scss']
 })
 export class SearchDetailsComponent implements OnInit {
+ 
+  @Input('job') job;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+  }
+
+  apply(uri: string) {
+    let index = uri.indexOf('"');
+    uri = uri.substring(index+1, uri.length);
+    index = uri.indexOf('"');
+    uri = uri.substring(0,index);
+    window.open(uri, "_blank");
   }
 
 }
