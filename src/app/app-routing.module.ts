@@ -9,7 +9,7 @@ import { SearchItemComponent } from './Components/search-item/search-item.compon
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
-  { path: '', component: SearchDetailsComponent },
+  { path: 'details', component: SearchDetailsComponent },
   { path: 'item', component: SearchItemComponent },
 ];
 

@@ -1,1 +1,85 @@
-<p>search works!</p>
+<nav class="navbar navbar-expand-lg  navbar-dark bg-primary radius">
+    <img src="../../../assets/jobsearch-white.PNG" width="64" alt="">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+
+<div class="search-bar radius shadow">
+
+    <div class="search-bar-body mt-2 bg-white radius">
+
+        <div class="row text-center flex-nowrap">
+
+            <div class="col-4">
+                <label class="subtitle" for="jobName">Name</label>
+                <select class="form-control" name="" id="jobName">
+                    <option value="">option</option>
+                    <option value="">option</option>
+                    <option value="">option</option>
+                    <option value="">option</option>
+                </select>
+            </div>
+
+            <div class="col-4">
+                <label class="subtitle" for="experience">Experience</label>
+                <select class="form-control" name="" id="experience">
+                    <option value="">option</option>
+                    <option value="">option</option>
+                    <option value="">option</option>
+                    <option value="">option</option>
+                </select>
+            </div>
+
+            <div class="col-4">
+                <label class="subtitle" for="date">Posted Date</label>
+                <select class="form-control radius" name="" id="date">
+                    <option value="">option</option>
+                    <option value="">option</option>
+                    <option value="">option</option>
+                    <option value="">option</option>
+                </select>
+            </div>
+
+            <div class="col-4">
+                <label class="subtitle" for="location">location</label>
+                <select class="form-control shadow radius" name="" id="location">
+                    <option value="">option</option>
+                    <option value="">option</option>
+                    <option value="">option</option>
+                    <option value="">option</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row search-bar-footer bg-white">
+        <div class="col-12"></div>
+        <button type="button" class="btn btn-success btn-sm  shadow">Apply Filter</button>
+    </div>
+</div>
+
+
+<div class="search-item-result" *ngFor="let job of jobs;" >
+    <app-search-item [title]="job.title" [type]="" [location]="job.location" [company_logo]="job.company_logo" ></app-search-item>
+</div>
+

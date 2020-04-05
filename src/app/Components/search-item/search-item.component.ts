@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 
 @Component({
   selector: 'app-search-item',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchItemComponent implements OnInit {
 
-  title='Software Developer';
-  description='Full time, Alameda, CA';
-  jobLogoUrl='../../../assets/wind.png';
+  @Input('title') title= '';
+  @Input('type') type= '';
+  @Input('location') location= '';
+  @Input('company_logo') company_logo= '';
+
   constructor() { }
 
   ngOnInit(): void {
