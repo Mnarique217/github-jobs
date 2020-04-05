@@ -18,7 +18,7 @@ $facebook-color:#435F9C;
     border: 0.063em solid $place-holder-gray;
 }
 
-.title{
+.item-title-text{
     color: $dark-gray;
     font-weight: bold;
     font-size: 1em !important;
@@ -27,7 +27,7 @@ $facebook-color:#435F9C;
 .btn {
     margin: 0.1em;
 }
-.value {
+.item-description-text {
     color: $place-holder-gray;
     text-decoration: underline;
 }
@@ -43,12 +43,19 @@ $facebook-color:#435F9C;
     height: 3rem;
     overflow: hidden;
 }
+.item-image{
+    margin: auto;
+}
 
 .row {
     margin-top: 0.1em;
-    padding-top: 1em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
     box-sizing: border-box;
 }
 .bg-white{
     background-color: white
+}
+.mg-auto{
+    margin: auto;
 }

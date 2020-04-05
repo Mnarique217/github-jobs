@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchItemComponent implements OnInit {
 
+  title='Software Developer';
+  description='Full time, Alameda, CA';
+  jobLogoUrl='../../../assets/wind.png';
   constructor() { }
 
   ngOnInit(): void {
