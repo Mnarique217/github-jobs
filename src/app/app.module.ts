@@ -28,7 +28,7 @@ const appRoutes: Routes = [
     SearchComponent,
     SearchDetailsComponent,
     SearchItemComponent,
-    ImagePipe
+    ImagePipe,
     LoginComponent,
     RegisterComponent
   ],
