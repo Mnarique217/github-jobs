@@ -5,7 +5,9 @@ $dark-gray:#5F5F5F;
 $facebook-color:#435F9C;
 
 .img {
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 64px;
 }
 
 .radius {

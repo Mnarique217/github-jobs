@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { positions } from '../../../assets/positions';
+
 
 @Component({
   selector: 'app-search',

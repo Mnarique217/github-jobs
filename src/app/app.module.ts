@@ -10,6 +10,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SearchComponent } from './Pages/search/search.component';
 import { SearchDetailsComponent } from './Components/search-details/search-details.component';
 import { SearchItemComponent } from './Components/search-item/search-item.component';
+import { ImagePipe } from './pipes/image.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     SearchComponent,
     SearchDetailsComponent,
-    SearchItemComponent
+    SearchItemComponent,
+    ImagePipe
   ],
   imports: [
     BrowserModule,

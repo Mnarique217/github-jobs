@@ -24,62 +24,70 @@
     </div>
 </nav>
 
+<style>
+    .content {
+        width: 98%;
+        margin: auto;
+        overflow-x: hidden;
+    }
+</style>
 
-<div class="search-bar radius shadow">
+<div class="content" style="overflow-x: hidden;">
 
-    <div class="search-bar-body mt-2 bg-white radius">
+    <div class="search-bar radius shadow">
 
-        <div class="row text-center flex-nowrap">
+        <div class="search-bar-body mt-2 bg-white radius">
+            <div class="row text-center flex-nowrap">
+                <div class="col-4">
+                    <label class="subtitle" for="jobName">Name</label>
+                    <select class="form-control" name="" id="jobName">
+                        <option value="">option</option>
+                        <option value="">option</option>
+                        <option value="">option</option>
+                        <option value="">option</option>
+                    </select>
+                </div>
 
-            <div class="col-4">
-                <label class="subtitle" for="jobName">Name</label>
-                <select class="form-control" name="" id="jobName">
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                </select>
-            </div>
+                <div class="col-4">
+                    <label class="subtitle" for="experience">Experience</label>
+                    <select class="form-control" name="" id="experience">
+                        <option value="">option</option>
+                        <option value="">option</option>
+                        <option value="">option</option>
+                        <option value="">option</option>
+                    </select>
+                </div>
 
-            <div class="col-4">
-                <label class="subtitle" for="experience">Experience</label>
-                <select class="form-control" name="" id="experience">
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                </select>
-            </div>
+                <div class="col-4">
+                    <label class="subtitle" for="date">Posted Date</label>
+                    <select class="form-control radius" name="" id="date">
+                        <option value="">option</option>
+                        <option value="">option</option>
+                        <option value="">option</option>
+                        <option value="">option</option>
+                    </select>
+                </div>
 
-            <div class="col-4">
-                <label class="subtitle" for="date">Posted Date</label>
-                <select class="form-control radius" name="" id="date">
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                </select>
-            </div>
-
-            <div class="col-4">
-                <label class="subtitle" for="location">location</label>
-                <select class="form-control shadow radius" name="" id="location">
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                    <option value="">option</option>
-                </select>
+                <div class="col-4">
+                    <label class="subtitle" for="location">location</label>
+                    <select class="form-control shadow radius" name="" id="location">
+                        <option value="">option</option>
+                        <option value="">option</option>
+                        <option value="">option</option>
+                        <option value="">option</option>
+                    </select>
+                </div>
             </div>
         </div>
+        <div class="row search-bar-footer bg-white">
+            <div class="col-12"></div>
+            <button type="button" class="btn btn-success btn-sm  shadow">Apply Filter</button>
+        </div>
     </div>
-    <div class="row search-bar-footer bg-white">
-        <div class="col-12"></div>
-        <button type="button" class="btn btn-success btn-sm  shadow">Apply Filter</button>
+
+    <div *ngFor="let job of jobs;">
+        <app-search-item [title]="job.title" [type]="" [location]="job.location" [company_logo]="job.company_logo"
+            [apply]="job.how_to_apply"></app-search-item>
     </div>
+
 </div>
-
-
-<div class="search-item-result" *ngFor="let job of jobs;" >
-    <app-search-item [title]="job.title" [type]="" [location]="job.location" [company_logo]="job.company_logo" ></app-search-item>
-</div>
-
