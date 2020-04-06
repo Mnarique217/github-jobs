@@ -7,6 +7,13 @@ import { HomeComponent } from './Pages/home/home.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { SearchComponent } from './Pages/search/search.component';
+import { SearchDetailsComponent } from './Components/search-details/search-details.component';
+import { SearchItemComponent } from './Components/search-item/search-item.component';
+import { ImagePipe } from './pipes/image.pipe';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './Pages/register/register.component';
+import { LoginComponent } from './Pages/login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -17,12 +24,19 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchComponent,
+    SearchDetailsComponent,
+    SearchItemComponent,
+    ImagePipe,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
