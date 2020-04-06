@@ -20,11 +20,14 @@ export class SearchItemComponent implements OnInit {
   closeResult: string;
 
   open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title',size: 'lg' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+
+    
   }
 
   private getDismissReason(reason: any): string {
