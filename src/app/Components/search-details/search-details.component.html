@@ -1,0 +1,69 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col text-center">
+            <h2 class="title">Position Details</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <img src="{{job.company_logo | image}}" class="radius img" alt="">
+        </div>
+
+        <div class="col-6">
+            <button type="button" (click)="apply(job.how_to_apply)" class="btn bg-secondary btn-sm radius">Apply</button>
+            <button type="button" class="btn btn-primary btn-sm radius">Save</button>
+        </div>
+    </div>
+
+    <div class="row mt-20">
+        <div class="col">
+            <div class="row">
+                <div class="col-6">
+                    <label class="subtitle">Title</label>
+                </div>
+                <div class="col-6">
+                    <label class="secondary">{{job.title}}</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="subtitle">Location</label>
+                </div>
+                <div class="col-6">
+                    <label class="secondary">{{job.location}}</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="subtitle">Type</label>
+                </div>
+                <div class="col-6">
+                    <label class="secondary">{{job.type}}</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="subtitle">Company</label>
+                </div>
+                <div class="col-6">
+                    <label class="secondary">{{job.company}}</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-20">
+        <div class="col-12">
+            <label class="subtitle"><strong>Description</strong></label>
+        </div>
+        <div class="col-12 description" [innerHTML]="job.description">
+        </div>
+    </div>
+
+</div>
