@@ -10,7 +10,7 @@ export class ImagePipe implements PipeTransform {
     if ( uri !=null ) {
         return  uri;
     } 
-    return '../../../assets/no image.png';
+    return '../../../assets/no available.png';
   }
 
 }
