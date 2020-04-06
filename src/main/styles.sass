@@ -3,22 +3,33 @@ html,body
     background-color: #EDEDED
 
 $ligth-gray:#EDEDED
-$primary:#52A654
+$primary:#422A77
+$secondary:#64549F
+$apply-color:#4973A6
 $place-holder-gray:#C0C0C0
 $dark-gray:#5F5F5F
 $facebook-color:#435F9C
+$white:#ffffff
+$read-more-color:#63539F
+
+.border-primary
+    border: 0.1em solid $primary !important
 
 .bg-primary
     background-color:$primary !important
-    color: white !important
+    color: $white !important
 
-
+.bg-secondary
+    background-color:$secondary !important
+    color: $white !important
+    
 .title
-    color: $place-holder-gray
-    font-size: 1.5em !important
+    color: $dark-gray
+    font-weight: bold
+    font-size: 1em !important
 
 .bg-white
-    background-color: #ffffff
+    background-color: $white
 
 .radius
     box-sizing: border-box
@@ -34,15 +45,16 @@ $facebook-color:#435F9C
     background-color: $primary
 
 .btn-read-more
-    background-color:#56a2be
-    border: 0.1em solid #56a2be
-    color: white
+    background-color:$read-more-color !important
+    border: 0.1em solid $read-more-color !important
+    color: white !important
 
 .btn-primary
-    background-color: $facebook-color
-    border: 0.1em solid $facebook-color
+    background-color: $apply-color
+    border: 0.1em solid $apply-color
 
 
 .btn-sm
     padding: 0.25em
     font-size: 0.75em
+

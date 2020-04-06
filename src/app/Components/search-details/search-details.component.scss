@@ -13,21 +13,10 @@ $facebook-color:#435F9C;
     width: 95%;
 }
 
-.bg-primary{
-    background-color:$primary !important;
-    color: white !important;
-}
 
 .btn {
     margin: 0.1em;
 }
-
-.radius {
-    box-sizing: border-box;
-    box-shadow: 0px 0.250em 0.250em rgba(0, 0, 0, 0.25);
-    border-radius: 0.20em;
-}
-
 
 .border-gray {
     border: 0.063em solid $place-holder-gray;
@@ -56,14 +45,11 @@ $facebook-color:#435F9C;
 }
 
 
-.value {
-    color: $place-holder-gray;
+.secondary {
+    color: $place-holder-gray !important;
 }
 
 
-.btn-primary {
-    background-color: $facebook-color !important;
-}
 
 .description{
     text-align: justify;
