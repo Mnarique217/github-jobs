@@ -1,15 +1,18 @@
-.search-bar
+.filter-wrap
+        flex-wrap: nowrap
+
+.search-header
         width: 100%
 
-.search-bar-body 
+
+.search-nav 
         margin: auto
         width: 100%
         overflow-x: auto
         white-space: nowrap
         padding: 0.25em
 
-
-.search-bar-footer 
+.search-row 
         margin: auto
         width: 100%
         padding: 0.25em
@@ -22,7 +25,44 @@ select
         padding-left: 1em
         padding-right: 1em
 
-.content 
+.search-content 
         width: 98%
         margin: auto
         overflow-x: hidden
+
+.search-body
+        width: 100%
+
+@media (max-width: 576px) 
+        .container
+                padding: 0
+                margin: 0
+        .btn-apply
+                font-weight: bold
+
+
+@media (min-width: 576px) 
+        .search-nav 
+                margin: auto
+                width: 100%
+                overflow-x: hidden
+                white-space: nowrap
+                padding: 0.25em
+                
+        .filter-wrap
+                flex-wrap: wrap
+                justify-content: center
+                
+
+        .search-content 
+                width: 100%
+                margin: auto
+                overflow-x: hidden
+                
+        select
+                width: 80%
+                margin: auto
+        .btn-apply
+                margin: auto
+
+

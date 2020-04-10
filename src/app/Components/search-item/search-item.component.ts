@@ -4,7 +4,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-search-item',
   templateUrl: './search-item.component.html',
-  styleUrls: ['./search-item.component.scss']
+  styleUrls: ['./search-item.component.sass']
 })
 export class SearchItemComponent implements OnInit {
 
