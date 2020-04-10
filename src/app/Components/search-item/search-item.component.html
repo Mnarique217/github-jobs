@@ -1,5 +1,5 @@
-<div class="job-item">
-    <div class="row shadow radius bg-white">
+
+    <div class="row job-item shadow radius bg-white">
         <div class="col-3 item-image">
             <img src="{{job.company_logo | image }}" class="img-fluid" alt="">
         </div>
@@ -11,11 +11,9 @@
             <button (click)="apply(job.how_to_apply)" type="button" class="btn btn-primary btn-sm radius">Apply</button>
         </div>
     </div>
-</div>
 
 
 <ng-template #mymodal let-modal> 
-
     <div class="modal-header bg-primary ">
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span style="color: white;" aria-hidden="true"><strong>X</strong></span>
@@ -24,8 +22,6 @@
     <div class="modal-body">
         <app-search-details [job]="job"></app-search-details>
     </div>
-
-
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
     </div>
