@@ -1,9 +1,9 @@
+
 .filter-wrap
         flex-wrap: nowrap
 
 .search-header
         width: 100%
-
 
 .search-nav 
         margin: auto
@@ -19,6 +19,8 @@
 
 select 
         color: #C0C0C0
+        width: 100%
+        margin: auto
 .search-item-result
         width: 100%
         box-sizing: border-box
@@ -26,19 +28,16 @@ select
         padding-right: 1em
 
 .search-content 
-        width: 98%
         margin: auto
         overflow-x: hidden
 
 .search-body
         width: 100%
 
-@media (max-width: 576px) 
-        .container
-                padding: 0
-                margin: 0
-        .btn-apply
-                font-weight: bold
+.infinite-scroll 
+        overflow-y: auto
+        overflow-x: hidden
+        height: 100vh
 
 
 @media (min-width: 576px) 
@@ -53,16 +52,19 @@ select
                 flex-wrap: wrap
                 justify-content: center
                 
-
         .search-content 
                 width: 100%
                 margin: auto
+                margin-top: 5em
                 overflow-x: hidden
                 
         select
                 width: 80%
                 margin: auto
-        .btn-apply
+
+        .mg-auto
                 margin: auto
 
+        .v-center
+                margin-top: 25vh
 

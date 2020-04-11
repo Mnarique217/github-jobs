@@ -1,84 +1,67 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
-    <img src="../../../assets/jobsearch-white.PNG" width="64" alt="">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
-
 <div class="container">
-    <div class="search-content">
+    <div class="row justify-content-center">
+        <div class="search-header radius col-md-4">
+            <div class="search-nav  bg-white">
+                <div class="row text-center filter-wrap v-center">
+                    <div class="col-5 col-md-8">
+                        <label class="title" for="jobName">Name</label>
+                        <select class="form-control" name="" id="jobName">
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                        </select>
+                    </div>
+                    <div class="col-5 col-md-8 ">
+                        <label class="title" for="experience">Experience</label>
+                        <select class="form-control radius" name="" id="experience">
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                        </select>
+                    </div>
 
-        <div class="row">
-            <div class="search-header radius shadow col-md-4">
-                <div class="search-nav  bg-white radius">
-                    <div class="row text-center filter-wrap">
-                        <div class="col-4 col-md-8">
-                            <label class="title" for="jobName">Name</label>
-                            <select class="form-control" name="" id="jobName">
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                            </select>
-                        </div>
-                        <div class="col-4 col-md-8 ">
-                            <label class="title" for="experience">Experience</label>
-                            <select class="form-control radius" name="" id="experience">
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                            </select>
-                        </div>
+                    <div class="col-5 col-md-8">
+                        <label class="title" for="date">Posted Date</label>
+                        <select class="form-control radius" name="" id="date">
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                        </select>
+                    </div>
 
-                        <div class="col-4 col-md-8">
-                            <label class="title" for="date">Posted Date</label>
-                            <select class="form-control radius" name="" id="date">
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                            </select>
-                        </div>
+                    <div class="col-5 col-md-8">
+                        <label class="title" for="location">location</label>
+                        <select class="form-control radius" name="" id="location">
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row search-row bg-white ">
+                <div class="col-12 "></div>
+                <button type="button" class="btn btn-success btn-sm radius mg-auto"> Apply Filter </button>
+            </div>
+        </div>
 
-                        <div class="col-4 col-md-8">
-                            <label class="title" for="location">location</label>
-                            <select class="form-control radius" name="" id="location">
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                            </select>
+
+        <div class="search-body col-md-6 bg-white">
+            <div class="infinite-scroll custom-scroll">
+
+                <div *ngIf="loading">
+                    <div class="d-flex justify-content-center" style="margin-top: 25vh;">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
                         </div>
                     </div>
                 </div>
-                <div class="row search-row bg-white ">
-                    <div class="col-12 "></div>
-                    <button type="button" class="btn bg-secondary btn-sm btn-apply"> Apply Filter </button>
-                </div>
-            </div>
 
-            <div class="search-body col-md-6">
-                <div *ngFor="let job of jobs;">
+                <div *ngFor='let job of jobs'>
                     <app-search-item [job]="job"></app-search-item>
                 </div>
             </div>

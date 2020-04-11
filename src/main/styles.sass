@@ -1,6 +1,8 @@
 html,body
     height: 100%
-    background-color: #EDEDED
+    padding: 0
+    margin: 0
+    //background-color: #EDEDED
 
 $ligth-gray:#EDEDED
 $primary:#422A77
@@ -11,17 +13,31 @@ $dark-gray:#5F5F5F
 $facebook-color:#435F9C
 $white:#ffffff
 $read-more-color:#63539F
+$custom-scroll:#dadada1a
+$custom-scroll-hover:#0000001a
 
-.border-primary
-    border: 0.1em solid $primary !important
 
-.bg-primary
-    background-color:$primary !important
-    color: $white !important
+.custom-scroll::-webkit-scrollbar-track
+    border-radius: 1em
+    background-color: $custom-scroll
 
-.bg-secondary
-    background-color:$secondary !important
-    color: $white !important
+
+.custom-scroll::-webkit-scrollbar
+    width: 0.50em
+
+
+.custom-scroll::-webkit-scrollbar-thumb
+    border-radius: 1em
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3)
+    background-color: #EDEDED
+
+::-webkit-scrollbar-thumb:hover
+    background: $custom-scroll-hover
+
+
+.border-botom-gray
+    border-bottom: 0.045em solid $ligth-gray !important
+
     
 .title
     color: $dark-gray
@@ -36,25 +52,11 @@ $read-more-color:#63539F
     border-radius: 0.20em
 
 .shadow
-        box-shadow: 0px 0.250em 0.250em rgba(0, 0, 0, 0.25)
+    box-shadow: 0px 0.250em 0.250em rgba(0, 0, 0, 0.25)
 
 .subtitle
-        color: $place-holder-gray
-
-.btn-success
-    background-color: $primary
-
-.btn-read-more
-    background-color:$read-more-color !important
-    border: 0.1em solid $read-more-color !important
-    color: white !important
-
-.btn-primary
-    background-color: $apply-color
-    border: 0.1em solid $apply-color
-
+    color: $place-holder-gray
 
 .btn-sm
     padding: 0.25em
     font-size: 0.75em
-
