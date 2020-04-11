@@ -25,59 +25,58 @@
 </nav>
 
 <div class="container">
-    <div class="search-content">
+    <div class="row justify-content-center">
+        <div class="search-header radius col-md-4 ">
+            <div class="search-nav  bg-white">
 
-        <div class="row">
-            <div class="search-header radius shadow col-md-4">
-                <div class="search-nav  bg-white radius">
-                    <div class="row text-center filter-wrap">
-                        <div class="col-4 col-md-8">
-                            <label class="title" for="jobName">Name</label>
-                            <select class="form-control" name="" id="jobName">
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                            </select>
-                        </div>
-                        <div class="col-4 col-md-8 ">
-                            <label class="title" for="experience">Experience</label>
-                            <select class="form-control radius" name="" id="experience">
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                            </select>
-                        </div>
+                <div class="row text-center filter-wrap v-center" >
+                    <div class="col-4 col-md-8">
+                        <label class="title" for="jobName">Name</label>
+                        <select class="form-control" name="" id="jobName">
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                        </select>
+                    </div>
+                    <div class="col-4 col-md-8 ">
+                        <label class="title" for="experience">Experience</label>
+                        <select class="form-control radius" name="" id="experience">
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                        </select>
+                    </div>
 
-                        <div class="col-4 col-md-8">
-                            <label class="title" for="date">Posted Date</label>
-                            <select class="form-control radius" name="" id="date">
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                            </select>
-                        </div>
+                    <div class="col-4 col-md-8">
+                        <label class="title" for="date">Posted Date</label>
+                        <select class="form-control radius" name="" id="date">
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                        </select>
+                    </div>
 
-                        <div class="col-4 col-md-8">
-                            <label class="title" for="location">location</label>
-                            <select class="form-control radius" name="" id="location">
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                            </select>
-                        </div>
+                    <div class="col-4 col-md-8">
+                        <label class="title" for="location">location</label>
+                        <select class="form-control radius" name="" id="location">
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                            <option value="">option</option>
+                        </select>
                     </div>
                 </div>
-                <div class="row search-row bg-white ">
-                    <div class="col-12 "></div>
-                    <button type="button" class="btn bg-secondary btn-sm btn-apply"> Apply Filter </button>
-                </div>
             </div>
-
-            <div class="search-body col-md-6">
+            <div class="row search-row bg-white ">
+                <div class="col-12 "></div>
+                <button type="button" class="btn bg-secondary btn-sm btn-apply"> Apply Filter </button>
+            </div>
+        </div>
+        <div class="search-body col-md-6 bg-white">
+            <div class="infinite-scroll custom-scroll">
                 <div *ngFor="let job of jobs;">
                     <app-search-item [job]="job"></app-search-item>
                 </div>
