@@ -1,9 +1,8 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="search-header radius col-md-4 ">
+        <div class="search-header radius col-md-4">
             <div class="search-nav  bg-white">
-
-                <div class="row text-center filter-wrap v-center" >
+                <div class="row text-center filter-wrap v-center">
                     <div class="col-5 col-md-8">
                         <label class="title" for="jobName">Name</label>
                         <select class="form-control" name="" id="jobName">
@@ -46,12 +45,23 @@
             </div>
             <div class="row search-row bg-white ">
                 <div class="col-12 "></div>
-                <button type="button" class="btn bg-secondary btn-sm btn-apply"> Apply Filter </button>
+                <button type="button" class="btn btn-success btn-sm radius mg-auto"> Apply Filter </button>
             </div>
         </div>
+
+
         <div class="search-body col-md-6 bg-white">
             <div class="infinite-scroll custom-scroll">
-                <div *ngFor="let job of jobs;">
+
+                <div *ngIf="loading">
+                    <div class="d-flex justify-content-center" style="margin-top: 25vh;">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngFor='let job of jobs'>
                     <app-search-item [job]="job"></app-search-item>
                 </div>
             </div>
