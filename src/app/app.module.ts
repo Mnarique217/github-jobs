@@ -14,6 +14,8 @@ import { ImagePipe } from './pipes/image.pipe';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './Pages/register/register.component';
 import { LoginComponent } from './Pages/login/login.component';
+import { AboutComponent } from './Pages/about/about.component';
+import { ContactComponent } from './Pages/contact/contact.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
     SearchItemComponent,
     ImagePipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
