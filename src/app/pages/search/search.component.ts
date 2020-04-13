@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { JobsService } from 'src/app/Services/github/jobs.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
   description = '';
   location = '';
 
-  constructor(private modalService: NgbModal, public jobsService: JobsService) { }
+  constructor(private modalService: NgbModal, public jobsService: JobsService, public toastService: ToastService) { }
 
   search() {
     this.loading = true;
@@ -24,10 +25,11 @@ export class SearchComponent implements OnInit {
     options.search = this.keywords;
     options.location = this.location;
 
-    this.jobsService.filter(options).then(response=>{
+    this.jobsService.filter(options).then(response => {
       this.loading = false;
       this.jobs = [];
       this.jobs = response;
+      this.showCustomToast('Processed correctly ');
     });
   }
 
@@ -37,6 +39,7 @@ export class SearchComponent implements OnInit {
       this.loading = false;
       this.jobs = [];
       this.jobs = data;
+      this.showCustomToast('Processed correctly ');
     });
   }
 
@@ -60,4 +63,13 @@ export class SearchComponent implements OnInit {
     }
   }
 
+
+  showCustomToast(msg) {
+    this.toastService.show(msg,  {
+      classname: 'bg-info text-light',
+      delay: 1000 ,
+      autohide: true
+    });
+  }
+  
 }

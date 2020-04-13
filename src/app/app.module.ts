@@ -17,6 +17,7 @@ import { ImagePipe } from './pipes/image.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ToastComponent } from './component/toast/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     AboutComponent,
+    ToastComponent,
     ContactComponent
   ],
   imports: [
