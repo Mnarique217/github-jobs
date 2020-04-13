@@ -1,4 +1,8 @@
 
+.filters-padding
+        margin-top: 0.25em
+        margin-bottom: 0.25em
+
 .filter-wrap
         flex-wrap: nowrap
 
@@ -17,7 +21,7 @@
         width: 100%
         padding: 0.25em
 
-select 
+.custom-input 
         color: #C0C0C0
         width: 100%
         margin: auto
@@ -39,13 +43,24 @@ select
         overflow-x: hidden
         height: 100vh
 
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) 
+        .v-center
+                margin-top: 50%
 
-@media (min-width: 576px) 
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px)    
+        .v-center
+                margin-top: 50% 
+
+
+
+@media (min-width: 720px) 
         .search-nav 
-                margin: auto
                 width: 100%
                 overflow-x: hidden
-                white-space: nowrap
                 padding: 0.25em
                 
         .filter-wrap
@@ -58,14 +73,9 @@ select
                 margin-top: 5em
                 overflow-x: hidden
                 
-        select
-                width: 80%
-                margin: auto
-
         .mg-auto
                 margin: auto
 
-        .v-center
-                margin-top: 50%
-                margin-bottom: 50%
+        .center
+                justify-content: center
 

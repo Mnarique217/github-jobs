@@ -6,22 +6,51 @@ const apiUri = 'https://jobs.github.com/positions';
 
 
 router.get('/positions', (req, res) => {
+    let concat = '?';
+    let requestUri = apiUri;
 
-    let description = req.query.description != undefined ? req.query.description : '';
-    let page = req.query.page != undefined ? req.query.page : '';
-    let location = req.query.location != undefined ? req.query.location : '';
-    let long = req.query.long != undefined ? req.query.long : '';
-    let lat = req.query.lat != undefined ? req.query.lat : '';
-    let full_time = req.query.full_time != undefined ? req.params.full_time:'';
-    let search = req.query.search != undefined ? req.params.search:'';
+    if (req.query.page != undefined && req.query.page != '') {
+        requestUri = `${requestUri}${concat}page=${req.query.page}`;
+        concat = '&';
+    }
 
-    let markdown = req.query.markdown != undefined ? req.query.markdown : '';
-    request(`${apiUri}?description=${description}&page=${page}&location=${location}&long=${long}&lat=${lat}&full_time=${full_time}&markdown=${markdown}&search=${search}`, { json: true }, (err, response, body) => {
+
+    if (req.query.location != undefined && req.query.location != '') {
+        requestUri = `${requestUri}${concat}location=${req.query.location}`;
+        concat ='&';
+    }
+
+
+    if (req.query.full_time != undefined && req.query.full_time != '') {
+        requestUri = `${requestUri}${concat}full_time=${req.query.full_time}${req.query.full_time}`;
+        concat ='&';
+    }
+
+
+    if (req.query.description != undefined && req.query.description != '' ) {
+        requestUri = `${requestUri}${concat}description=${req.query.description}`;
+        concat ='&';
+    }
+
+
+    if (req.query.search != undefined && req.query.search != '') {
+        requestUri = `${requestUri}${concat}search=${req.query.search}`;
+        concat ='&';
+    }
+
+
+    console.log(requestUri);
+
+    request(requestUri, { json: true }, (err, response, body) => {
         if (err) {
             res.json({ err });
         }
         res.json(body);
     });
 });
+
+function addParam(url, param) {
+    return `${url}${param}`;
+}
 
 module.exports = router;

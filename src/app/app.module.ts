@@ -16,6 +16,7 @@ import { SearchItemComponent } from './copmponents/search-item/search-item.compo
 import { ImagePipe } from './pipes/image.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    FormsModule,
     NgbModule
   ],
   providers: [],

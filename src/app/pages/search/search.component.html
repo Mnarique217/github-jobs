@@ -1,65 +1,65 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="search-header radius col-md-4">
-            <div class="search-nav  bg-white v-center">
+
+        <div class="search-header radius col-md-4  ">
+
+            <div class="search-nav  bg-white v-center ">
                 <div class="row text-center filter-wrap">
-                    <div class="col-5 col-md-8">
-                        <label class="title" for="jobName">Name</label>
-                        <select class="form-control" name="" id="jobName">
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                        </select>
+
+                    <div class="col-8 col-md-12">
+                        <label class="title filters-padding" for="keywords">Key Words</label>
+                        <input [(ngModel)]="keywords" type="text" class="form-control custom-input " id="keywords"
+                            placeholder="Intern Java Developer">
                     </div>
-                    <div class="col-5 col-md-8 ">
-                        <label class="title" for="experience">Experience</label>
-                        <select class="form-control radius" name="" id="experience">
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                        </select>
+                    <div class="col-8 col-md-12">
+                        <label class="title filters-padding" for="description">Description</label>
+                        <input [(ngModel)]="description" type="text" class="form-control custom-input " id="description"
+                            placeholder="Intern Java Developer">
                     </div>
 
-                    <div class="col-5 col-md-8">
-                        <label class="title" for="date">Posted Date</label>
-                        <select class="form-control radius" name="" id="date">
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                        </select>
+                    <div class="col-8 col-md-12">
+                        <label class="title filters-padding" for="location">location</label>
+                        <input [(ngModel)]="location" type="text" class="form-control custom-input " id="location"
+                            placeholder="Alameda, CA">
                     </div>
 
-                    <div class="col-5 col-md-8">
-                        <label class="title" for="location">location</label>
-                        <select class="form-control radius" name="" id="location">
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                        </select>
+                    <div class="col-8 col-md-12">
+                        <label class="title filters-padding" for="date">Posted Date</label>
+                        <input type="date" class="form-control custom-input " id="date">
                     </div>
-                </div>
-                <div class="row search-row bg-white ">
-                    <div class="col-12 "></div>
-                    <button type="button" class="btn btn-success btn-sm radius mg-auto"> Apply Filter </button>
                 </div>
             </div>
-        </div>
 
+            <div class="row search-row bg-white center ">
+                <form>
+                    <div class="form-check filters-padding">
+                        <input type="checkbox" class="form-check-input" id="type">
+                        <label class="form-check-label title" for="type">Full time only</label>
+                    </div>
+                    <button (click)="search()" type="button"
+                        class="btn bg-secondary-color color-white btn-sm radius custom-input ">
+                        <span *ngIf="!loading">
+                            Search
+                        </span>
+                        <span *ngIf="loading">
+                            <span class="spinner-border spinner-border-sm"></span>
+                            Loading..
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
 
         <div class="search-body col-md-6 bg-white" style="flex: 1;">
             <div class="infinite-scroll custom-scroll">
 
-                <div *ngIf="loading">
-                    <div class="d-flex justify-content-center" style="margin-top: 25vh;">
+                <!-- <div *ngIf="loading">
+                    <div class=" overlay d-flex justify-content-center" style="margin-top: 25vh; z-index: 1000;">
                         <div class="spinner-border" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div *ngFor='let job of jobs'>
                     <app-search-item [job]="job"></app-search-item>

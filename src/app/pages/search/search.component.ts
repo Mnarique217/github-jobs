@@ -8,16 +8,36 @@ import { JobsService } from 'src/app/Services/github/jobs.service';
   styleUrls: ['./search.component.sass']
 })
 export class SearchComponent implements OnInit {
-  jobs :any;
+  jobs: any;
   loading = true;
-  constructor(private modalService: NgbModal, public jobsService: JobsService) {   }
+  keywords = '';
+  description = '';
+  location = '';
+
+  constructor(private modalService: NgbModal, public jobsService: JobsService) { }
+
+  search() {
+    this.loading = true;
+    let options = this.jobsService.getOptions();
+
+    options.description = this.description;
+    options.search = this.keywords;
+    options.location = this.location;
+
+    this.jobsService.filter(options).then(response=>{
+      this.loading = false;
+      this.jobs = [];
+      this.jobs = response;
+    });
+  }
+
 
   ngOnInit() {
     this.jobsService.init().then(data => {
-       this.loading = false;
-       this.jobs = [];
-       this.jobs = data;
-       });
+      this.loading = false;
+      this.jobs = [];
+      this.jobs = data;
+    });
   }
 
   closeResult: string;
