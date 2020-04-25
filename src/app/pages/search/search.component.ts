@@ -35,6 +35,7 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit() {
+    this.showCustomToast('Loading...');
     this.jobsService.init().then(data => {
       this.loading = false;
       this.jobs = [];
@@ -67,7 +68,7 @@ export class SearchComponent implements OnInit {
   showCustomToast(msg) {
     this.toastService.show(msg,  {
       classname: 'bg-info text-light',
-      delay: 1000 ,
+      delay: 3000 ,
       autohide: true
     });
   }
