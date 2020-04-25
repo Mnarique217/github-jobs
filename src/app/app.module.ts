@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { ToastComponent } from './component/toast/toast/toast.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +53,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIconPacks(fas);
+    library.addIconPacks(fas, fab);
   }
  }
