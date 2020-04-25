@@ -17,7 +17,7 @@ import { ImagePipe } from './pipes/image.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { ToastComponent } from './component/toast/toast/toast.component';
+import { ToastComponent } from './copmponents/toast/toast.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
