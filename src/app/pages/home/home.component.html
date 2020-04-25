@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <div class="card pl-5 pm-5 p-3 mt-2">
+  <div class="card pm-5 p-3 mt-2">
     <h4 class="text-center">Search your next job</h4>
     <div class="align-self-center">
       <ul class="search-options">
@@ -21,26 +21,26 @@
       </ul>
       <div>
         <form>
-          <div class="form-row align-items-center">
-            <div class="col-auto">
+          <div class="row form-row align-items-center">
+            <div class="col-sm-12 col-md-4">
               <label class="sr-only" for="keyword">Keyword</label>
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                  <div class="input-group-text">@</div>
+                  <div class="input-group-text"><fa-icon [icon]="['fas', 'search']"></fa-icon></div>
                 </div>
                 <input type="text" class="form-control" id="keyword" placeholder="Keyword">
               </div>
             </div>
-            <div class="col-auto">
+            <div class="col-sm-12 col-md-4">
               <label class="sr-only" for="location">Location</label>
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                  <div class="input-group-text">@</div>
+                  <div class="input-group-text"><fa-icon [icon]="['fas', 'location-arrow']"></fa-icon></div>
                 </div>
                 <input type="text" class="form-control" id="location" placeholder="Location">
               </div>
             </div>
-            <div class="col-auto">
+            <div class="col-sm-12 col-md-4">
               <button type="submit" class="btn btn-primary mb-2">Search</button>
             </div>
           </div>
