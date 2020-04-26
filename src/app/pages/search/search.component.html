@@ -6,7 +6,7 @@
             <div class="search-nav  bg-white ">
                 <div class="row text-center filter-wrap ">
 
-                    <div class="col-4 col-md-12">
+                    <div class="col-8 col-md-12">
                         <label class="title filters-padding" for="keywords">Key Words</label>
                         <input [(ngModel)]="keywords" type="text" class="form-control custom-input " id="keywords"
                             placeholder="Intern Java Developer">
@@ -23,26 +23,27 @@
                             placeholder="Alameda, CA">
                     </div>
 
-                    <div class="col-8 col-md-12">
+                    <!-- <div class="col-8 col-md-12">
                         <label class="title filters-padding" for="date">Posted Date</label>
                         <input type="date" class="form-control custom-input " id="date">
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
             <div class="row search-row bg-white center ">
                 <form>
                     <div class="form-check filters-padding">
-                        <input type="checkbox" class="form-check-input" id="type">
+                        <input type="checkbox" class="form-check-input" [(ngModel)]="fulltimeonly" name="checkbox"
+                            id="type">
                         <label class="form-check-label title" for="type">Full time only</label>
                     </div>
                     <button (click)="search()" type="button"
-                        class="btn bg-secondary-color color-white  radius custom-input ">
+                        class="btn bg-secondary-color color-white btn-sm radius custom-input ">
                         <span *ngIf="!loading">
                             Search
                         </span>
                         <span *ngIf="loading">
-                            <span class="spinner-border spinner-border-sm"></span>
+                            <span class="spinner-border spinner-border-sm" ></span>
                             Loading..
                         </span>
                     </button>
@@ -52,24 +53,34 @@
 
         <div class="search-body col-md-9 bg-white" style="flex: 1;">
 
-            <div class="infinite-scroll custom-scroll border-left">
 
-                <!-- <div class="row search-row bg-white center border">
+            <div class="row border-bottom m-auto">
+                <div class="col-12 p-2">
+                    <ul class="pagination justify-content-center ">
+                        <li class="page-item">
+                            <input (click)="home()" type="button" class="page-link" value="<<">
+                        </li>
+                        <li class="page-item">
+                            <input (click)="prev()" type="button" class="page-link" value="Previous">
+                        </li>
+                        <li class="page-item">
+                            <input (click)="next()" type="button" class="page-link" value="Next">
+                        </li>
+                        <li class="page-item p-1 ">
 
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <div *ngIf="loading" class="spinner-border text-secondary available-pc ml-1" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </li>
                     </ul>
 
-                    <div class="spinner-grow bg-primary-color float-right" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                </div> -->
+                </div>
+            </div>
 
+            <div class="infinite-scroll custom-scroll" >
                 <div *ngFor='let job of jobs'>
                     <app-search-item [job]="job"></app-search-item>
                 </div>
-
             </div>
 
         </div>

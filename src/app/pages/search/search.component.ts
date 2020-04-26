@@ -16,6 +16,8 @@ export class SearchComponent implements OnInit {
   keywords = '';
   description = '';
   location = '';
+  fulltimeonly = false;
+  page = 1;
 
 
   constructor(private modalService: NgbModal, public jobsService: JobsService, public toastService: ToastService, private route: ActivatedRoute) { }
@@ -27,19 +29,94 @@ export class SearchComponent implements OnInit {
     options.description = this.description;
     options.search = this.keywords;
     options.location = this.location;
+    options.full_time = this.fulltimeonly;
 
     this.jobsService.filter(options).then(response => {
       this.loading = false;
       this.jobs = [];
       this.jobs = response;
-      this.showCustomToast('Processed correctly ');
+      this.showCustomToast('Processed correctly', 2000, 'bg-success color-white');
     });
   }
 
 
-  ngOnInit() {
-    this.showCustomToast('Loading...');
+  next() {
+    this.page += 1;
+    this.loading = true;
     let options = this.jobsService.getOptions();
+
+    options.page = this.page;
+    options.description = this.description;
+    options.search = this.keywords;
+    options.location = this.location;
+    options.full_time = this.fulltimeonly;
+
+    this.jobsService.filter(options).then((response: []) => {
+      this.loading = false;
+
+      if (response.length == 0) {
+        this.showCustomToast('No more results found', 3000, 'bg-warning color-white');
+
+      } else {
+        this.jobs = response;
+        this.showCustomToast('Processed correctly', 2000, 'bg-success color-white');
+      }
+
+
+    });
+  }
+
+  prev() {
+    if (this.page > 1) {
+      this.page -= 1;
+      this.loading = true;
+      let options = this.jobsService.getOptions();
+
+      options.page = this.page;
+      options.description = this.description;
+      options.search = this.keywords;
+      options.location = this.location;
+      options.full_time = this.fulltimeonly;
+
+      this.jobsService.filter(options).then(response => {
+        this.loading = false;
+        this.jobs = [];
+        this.jobs = response;
+        this.showCustomToast('Processed correctly', 2000, 'bg-success color-white');
+      });
+    } else {
+      this.showCustomToast('Page (1) already', 2000, 'bg-info color-white');
+    }
+  }
+
+  home() {
+    if (this.page != 1) {
+      this.page = 1;
+      this.loading = true;
+      let options = this.jobsService.getOptions();
+
+      options.page = this.page;
+      options.description = this.description;
+      options.search = this.keywords;
+      options.location = this.location;
+      options.full_time = this.fulltimeonly;
+
+      this.jobsService.filter(options).then(response => {
+        this.loading = false;
+        this.jobs = [];
+        this.jobs = response;
+        this.showCustomToast('Processed correctly ', 2000, 'bg-success color-white');
+      });
+    } else {
+      this.showCustomToast('Page (1) already', 2000, 'bg-info color-white');
+    }
+
+  }
+
+  ngOnInit() {
+
+    let options = this.jobsService.getOptions();
+    options.page = 1;
     let isParam = false;
 
     this.route.queryParams
@@ -47,29 +124,29 @@ export class SearchComponent implements OnInit {
       .subscribe(params => {
         if (params.key != undefined) {
           options.search = params.key;
+          this.keywords=params.key; 
           isParam = true;
         }
         if (params.location != undefined) {
           options.location = params.location;
+          this.location=params.location; 
           isParam = true;
         }
       });
 
     if (isParam) {
-      console.log('yes params');
       this.jobsService.filter(options).then(response => {
         this.loading = false;
         this.jobs = [];
         this.jobs = response;
-        this.showCustomToast('Processed correctly ');
+        this.showCustomToast('Processed correctly ', 2000, 'bg-success color-white');
       });
     } else {
-      console.log('no params');
       this.jobsService.init().then(data => {
         this.loading = false;
         this.jobs = [];
         this.jobs = data;
-        this.showCustomToast('Processed correctly ');
+        this.showCustomToast('Processed correctly ', 2000, 'bg-success color-white');
       });
     }
   }
@@ -95,10 +172,10 @@ export class SearchComponent implements OnInit {
   }
 
 
-  showCustomToast(msg) {
+  showCustomToast(msg, time, color) {
     this.toastService.show(msg, {
-      classname: 'bg-info text-light',
-      delay: 3000,
+      classname: color,
+      delay: time,
       autohide: true
     });
   }
