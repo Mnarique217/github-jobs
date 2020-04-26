@@ -1,0 +1,36 @@
+<div class="card pm-5 p-3 mt-2">
+    <h4 class="text-center">Search your next job</h4>
+    <div class="align-self-center">
+      <ul class="search-options">
+        <li class="search-option-active">Jobs</li>
+        <li>Companies</li>
+      </ul>
+      <div>
+        <form>
+          <div class="row form-row align-items-center">
+            <div class="col-sm-12 col-md-4">
+              <label class="sr-only" for="keyword">Keyword</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><fa-icon [icon]="['fas', 'search']"></fa-icon></div>
+                </div>
+                <input type="text" [(ngModel)]="keyword" class="form-control" id="keyword" placeholder="Keyword" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+              <label class="sr-only" for="location">Location</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><fa-icon [icon]="['fas', 'location-arrow']"></fa-icon></div>
+                </div>
+                <input type="text" [(ngModel)]="location" class="form-control" id="location" placeholder="Location" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+              <input type="submit" (click)="openSearch()" class="btn btn-primary mb-2" value="Search">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
