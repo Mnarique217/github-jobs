@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FirebaseJobService } from 'src/app/Services/firebase/firebaseJobs.service';
 
 @Component({
   selector: 'app-search-item',
@@ -12,7 +13,7 @@ export class SearchItemComponent implements OnInit {
   @Input('job') job;
   @Input('type') type = ''; //types: savedJob, listJobItem
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, public db : FirebaseJobService) {}
 
   ngOnInit(): void {
   }
@@ -22,6 +23,7 @@ export class SearchItemComponent implements OnInit {
   removeItem(id){
     if(this.type === "savedJob"){
       //TODO: Delete the job in firebase
+      this.db.
     }
   }
   open(content) {
