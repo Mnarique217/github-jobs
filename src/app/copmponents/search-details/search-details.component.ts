@@ -24,7 +24,6 @@ export class SearchDetailsComponent implements OnInit {
       }else{
         this.showCustomToast('Opps...', 2000, 'bg-warning color-white');
       }
-      
     });
   }
 
