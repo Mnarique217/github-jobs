@@ -9,6 +9,7 @@
             <p class="item-description-text underline">{{job.location}},{{job.type}}</p>
             <button type="button" class="btn bg-secondary-color color-white btn-sm radius" (click)="open(mymodal)">Read More</button>
             <button (click)="apply(job.how_to_apply)" type="button" class="btn bg-facebook-color  color-white btn-sm radius">Apply</button>
+            <button *ngIf="type === 'savedJob'" (click)="removeItem('job.id')" type="button" class="btn btn-danger  color-white btn-sm radius">Remove</button>
         </div>
     </div>
 
