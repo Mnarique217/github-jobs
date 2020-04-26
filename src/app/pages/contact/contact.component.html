@@ -13,24 +13,24 @@
     </div>
     <div class="border rounded p-3 mt-4">
         <h5 class="border-bottom pb-3">Send us a message</h5>
-        <form>
+        <form action="mailto:contact@youjob.com" method="post" enctype="text/plain">
             <div class="form-group">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
             </div>
             <div class="form-group">
-                <label for="inputAddress">Full Name</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="John Doe">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="John Doe">
             </div>
             <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" class="form-control" id="subject" placeholder="Job information">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Job information">
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea type="text" rows="6" cols="50" class="form-control" id="message" placeholder="Message"></textarea>
+                <textarea type="text" rows="6" cols="50" name="message" class="form-control" id="message" placeholder="Message"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <input type="submit" class="btn btn-primary" value="Submit">
         </form>
     </div>
 </div>

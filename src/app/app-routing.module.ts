@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'search', component: SearchComponent },
-  { path: '', component: SearchComponent },
+  { path: '', component: HomeComponent },
   { path: 'item', component: SearchItemComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
