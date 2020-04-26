@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FirebaseJobService } from 'src/app/services/firebase/firebaseJobs.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-search-details',
@@ -11,15 +11,20 @@ export class SearchDetailsComponent implements OnInit {
 
   @Input('job') job;
 
-  constructor(private modalService: NgbModal,public jobService: FirebaseJobService) { }
+  constructor( public toastService: ToastService,public jobService: FirebaseJobService) { }
 
   ngOnInit(): void {
 
   }
 
   save() {
-    this.jobService.saveJob(this.job,this.jobService.getNewJobKey()).then(data => {
-      console.log(data);
+    this.jobService.saveJob(this.job).then(result => {
+      if(result){
+        this.showCustomToast('Saved... ', 2000, 'bg-info color-white');
+      }else{
+        this.showCustomToast('Opps...', 2000, 'bg-warning color-white');
+      }
+      
     });
   }
 
@@ -29,6 +34,14 @@ export class SearchDetailsComponent implements OnInit {
     index = uri.indexOf('"');
     uri = uri.substring(0, index);
     window.open(uri, "_blank");
+  }
+
+  showCustomToast(msg, time, color) {
+    this.toastService.show(msg, {
+      classname: color,
+      delay: time,
+      autohide: true
+    });
   }
 
 }

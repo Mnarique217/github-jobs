@@ -24,10 +24,10 @@ export class FirebaseJobService {
   }
 
 
-  saveJob(job, userKey) {
+  saveJob(job, userKey='mq') {
 
     return new Promise((resolve, reject) => {
-      this.db.object(`/users/mq/savedJobs/${this.getNewJobKey()}`).update(job).then(
+      this.db.object(`/users/${userKey}/savedJobs/${job.id}`).update(job).then(
         (evt) => {
           resolve(true);
         },
