@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { JobsService } from 'src/app/Services/github/jobs.service';
 import { ToastService } from 'src/app/services/toast/toast.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -9,13 +10,15 @@ import { ToastService } from 'src/app/services/toast/toast.service';
   styleUrls: ['./search.component.sass']
 })
 export class SearchComponent implements OnInit {
+
   jobs: any;
   loading = true;
   keywords = '';
   description = '';
   location = '';
 
-  constructor(private modalService: NgbModal, public jobsService: JobsService, public toastService: ToastService) { }
+
+  constructor(private modalService: NgbModal, public jobsService: JobsService, public toastService: ToastService, private route: ActivatedRoute) { }
 
   search() {
     this.loading = true;
@@ -35,12 +38,40 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit() {
-    this.jobsService.init().then(data => {
-      this.loading = false;
-      this.jobs = [];
-      this.jobs = data;
-      this.showCustomToast('Processed correctly ');
-    });
+    this.showCustomToast('Loading...');
+    let options = this.jobsService.getOptions();
+    let isParam = false;
+
+    this.route.queryParams
+
+      .subscribe(params => {
+        if (params.key != undefined) {
+          options.search = params.key;
+          isParam = true;
+        }
+        if (params.location != undefined) {
+          options.location = params.location;
+          isParam = true;
+        }
+      });
+
+    if (isParam) {
+      console.log('yes params');
+      this.jobsService.filter(options).then(response => {
+        this.loading = false;
+        this.jobs = [];
+        this.jobs = response;
+        this.showCustomToast('Processed correctly ');
+      });
+    } else {
+      console.log('no params');
+      this.jobsService.init().then(data => {
+        this.loading = false;
+        this.jobs = [];
+        this.jobs = data;
+        this.showCustomToast('Processed correctly ');
+      });
+    }
   }
 
   closeResult: string;
@@ -65,11 +96,11 @@ export class SearchComponent implements OnInit {
 
 
   showCustomToast(msg) {
-    this.toastService.show(msg,  {
+    this.toastService.show(msg, {
       classname: 'bg-info text-light',
-      delay: 1000 ,
+      delay: 3000,
       autohide: true
     });
   }
-  
+
 }

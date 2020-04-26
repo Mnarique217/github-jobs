@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 //https://jobs.github.com/positions.json?search=node
 export class JobsService {
   totalAngularPackages;
-  api = 'http://10.240.78.197:3000/positions';
+  api = 'http://localhost:3000/positions';
 
   constructor(private http: HttpClient) { }
 
