@@ -1,11 +1,12 @@
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="search-header radius col-md-4  ">
+    <div class="row justify-content-center ">
 
-            <div class="search-nav  bg-white v-center ">
-                <div class="row text-center filter-wrap">
+        <div class="search-header radius col-md-3 mt-3">
+            <h1 class="text-center custom-title">Job Search</h1>
+            <div class="search-nav  bg-white ">
+                <div class="row text-center filter-wrap ">
 
-                    <div class="col-8 col-md-12">
+                    <div class="col-4 col-md-12">
                         <label class="title filters-padding" for="keywords">Key Words</label>
                         <input [(ngModel)]="keywords" type="text" class="form-control custom-input " id="keywords"
                             placeholder="Intern Java Developer">
@@ -36,7 +37,7 @@
                         <label class="form-check-label title" for="type">Full time only</label>
                     </div>
                     <button (click)="search()" type="button"
-                        class="btn bg-secondary-color color-white btn-sm radius custom-input ">
+                        class="btn bg-secondary-color color-white  radius custom-input ">
                         <span *ngIf="!loading">
                             Search
                         </span>
@@ -49,16 +50,32 @@
             </div>
         </div>
 
-        <div class="search-body col-md-6 bg-white" style="flex: 1;">
+        <div class="search-body col-md-9 bg-white" style="flex: 1;">
 
-            <div class="infinite-scroll custom-scroll">
+            <div class="infinite-scroll custom-scroll border-left">
+
+                <!-- <div class="row search-row bg-white center border">
+
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+
+                    <div class="spinner-grow bg-primary-color float-right" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div> -->
+
                 <div *ngFor='let job of jobs'>
                     <app-search-item [job]="job"></app-search-item>
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>
+
 
 <ng-template #customTpl>
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">

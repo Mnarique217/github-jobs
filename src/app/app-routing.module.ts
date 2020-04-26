@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'search', component: SearchComponent },
-  { path: '', component: SearchComponent },
   { path: 'item', component: SearchItemComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },

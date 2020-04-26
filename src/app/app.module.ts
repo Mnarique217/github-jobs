@@ -26,6 +26,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchJobsFormComponent } from './copmponents/search-jobs-form/search-jobs-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     AboutComponent,
     ToastComponent,
-    ContactComponent
+    ContactComponent,
+    SearchJobsFormComponent
   ],
   imports: [
     BrowserModule,

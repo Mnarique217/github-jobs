@@ -1,4 +1,4 @@
-
+$dark-gray:#5F5F5F
 .filters-padding
         margin-top: 0.25em
         margin-bottom: 0.25em
@@ -41,16 +41,12 @@
 .infinite-scroll 
         overflow-y: auto
         overflow-x: hidden
-        height: 100vh
+        height: 50vh
+        margin-bottom: 2em
 
- 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) 
-        .v-center
-                margin-top: 50%
+.custom-title
+        display: none
 
- 
-/* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px)    
         .v-center
                 margin-top: 50% 
@@ -71,11 +67,21 @@
                 width: 100%
                 margin: auto
                 margin-top: 5em
-                overflow-x: hidden
-                
+                overflow-x: hidden                
         .mg-auto
                 margin: auto
-
         .center
-                justify-content: center
+                justify-content: center  
+
+        .infinite-scroll 
+                overflow-y: auto
+                overflow-x: hidden
+                height: 90vh
+                margin-bottom: 2em
+        .custom-title
+                color: $dark-gray
+                font-weight: bold
+                font-size: 2em !important
+                display: block
+
 
