@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { JobService } from 'src/app/services/firebase/jobs.service';
+import { FirebaseJobService } from 'src/app/services/firebase/firebaseJobs.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-search-details',
@@ -10,7 +11,7 @@ export class SearchDetailsComponent implements OnInit {
 
   @Input('job') job;
 
-  constructor(public jobService: JobService) { }
+  constructor(private modalService: NgbModal,public jobService: FirebaseJobService) { }
 
   ngOnInit(): void {
 
@@ -21,6 +22,7 @@ export class SearchDetailsComponent implements OnInit {
       console.log(data);
     });
   }
+
   apply(uri: string) {
     let index = uri.indexOf('"');
     uri = uri.substring(index + 1, uri.length);
