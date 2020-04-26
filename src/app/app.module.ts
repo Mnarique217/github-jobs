@@ -25,6 +25,7 @@ import { environment } from 'src/environments/environment';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import { SearchJobsFormComponent } from './copmponents/search-jobs-form/search-jobs-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
     RegisterComponent,
     AboutComponent,
     ToastComponent,
-    ContactComponent
+    ContactComponent,
+    SearchJobsFormComponent
   ],
   imports: [
     BrowserModule,
