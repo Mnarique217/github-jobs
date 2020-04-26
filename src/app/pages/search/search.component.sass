@@ -1,4 +1,5 @@
 $dark-gray:#5F5F5F
+$place-holder-gray:#C0C0C0
 .filters-padding
         margin-top: 0.25em
         margin-bottom: 0.25em
@@ -47,6 +48,21 @@ $dark-gray:#5F5F5F
 .custom-title
         display: none
 
+.infinite-scroll-h
+        overflow-y: hidden
+        overflow-x: auto
+
+.pagination
+        padding: 0
+        margin: 0
+
+.page-link
+        color: $place-holder-gray
+
+.available-pc
+        display: none
+
+
 @media (min-width: 1200px)    
         .v-center
                 margin-top: 50% 
@@ -83,5 +99,6 @@ $dark-gray:#5F5F5F
                 font-weight: bold
                 font-size: 2em !important
                 display: block
-
+        .available-pc
+                display: block
 

@@ -22,7 +22,7 @@ router.get('/positions', (req, res) => {
 
 
     if (req.query.full_time != undefined && req.query.full_time != '') {
-        requestUri = `${requestUri}${concat}full_time=${req.query.full_time}${req.query.full_time}`;
+        requestUri = `${requestUri}${concat}full_time=${req.query.full_time}`;
         concat ='&';
     }
 
