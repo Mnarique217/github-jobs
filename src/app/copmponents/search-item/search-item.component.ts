@@ -8,9 +8,9 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class SearchItemComponent implements OnInit {
 
-
   @Input('apply') applyUri = '';
   @Input('job') job;
+  @Input('type') type = ''; //types: savedJob, listJobItem
 
   constructor(private modalService: NgbModal) {}
 
@@ -19,6 +19,11 @@ export class SearchItemComponent implements OnInit {
 
   closeResult: string;
 
+  removeItem(id){
+    if(this.type === "savedJob"){
+      //TODO: Delete the job in firebase
+    }
+  }
   open(content) {
 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title',size: 'lg' }).result.then((result) => {
