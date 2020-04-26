@@ -63,6 +63,8 @@ import { SearchJobsFormComponent } from './copmponents/search-jobs-form/search-j
 })
 
 export class AppModule {
+currentLocation = null;
+
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fas, fab);
   }
