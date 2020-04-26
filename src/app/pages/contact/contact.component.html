@@ -13,24 +13,24 @@
     </div>
     <div class="border rounded p-3 mt-4">
         <h5 class="border-bottom pb-3">Send us a message</h5>
-        <form action="mailto:contact@youjob.com" method="post" enctype="text/plain">
+        <form>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                <input type="email" [(ngModel)]="email" class="form-control" name="email" id="email" placeholder="Email">
             </div>
             <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="John Doe">
+                <input type="text" [(ngModel)]="name" class="form-control" name="name" id="name" placeholder="John Doe">
             </div>
             <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Job information">
+                <input type="text" [(ngModel)]="subject" class="form-control" name="subject" id="subject" placeholder="Job information">
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea type="text" rows="6" cols="50" name="message" class="form-control" id="message" placeholder="Message"></textarea>
+                <textarea type="text" [(ngModel)]="message" rows="6" cols="50" name="message" class="form-control" id="message" placeholder="Message"></textarea>
             </div>
-            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="submit" (click)="sendEmail()" class="btn btn-primary" value="Submit">
         </form>
     </div>
 </div>
