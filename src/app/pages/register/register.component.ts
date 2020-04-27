@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase } from 'angularfire2/database'
 import { FormControl } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ToastService } from 'src/app/services/toast/toast.service';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-register',
