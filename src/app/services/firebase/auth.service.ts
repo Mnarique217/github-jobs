@@ -30,7 +30,6 @@ export class AuthService {
   /* Sign in */
   SignIn(email: string, password: string) {
     this.angularFireAuth
-
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log('Successfully signed in!');
@@ -43,8 +42,20 @@ export class AuthService {
   /* Sign out */
   SignOut() {
     this.angularFireAuth
-
       .signOut();
+  }
+
+
+  CurrentUser() {
+    return new Promise((resolve, reject) => {
+      this.angularFireAuth.onAuthStateChanged(function (user) {
+        if (user) {
+          resolve(user);
+        } else {
+          reject(null);
+        }
+      });
+    });
   }
 
 }

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class FirebaseJobService {
 
   databaseName = 'users/mq/savedJobs';
-  constructor(public db: AngularFireDatabase) {
+  constructor(public db: AngularFireDatabase, public auth: AuthService) {
   }
 
   getAllJobs() {
@@ -24,19 +25,25 @@ export class FirebaseJobService {
   }
 
 
-  saveJob(job, userKey = 'mq') {
-
+  saveJob(job) {
     return new Promise((resolve, reject) => {
-      this.db.object(`/users/${userKey}/savedJobs/${job.id}`).update(job).then(
-        (evt) => {
-          resolve(true);
-        },
-        (err) => {
-          reject(false);
+      this.auth.CurrentUser().then((user: firebase.User) => {
+        if (user != null) {
+          this.db.object(`/users/${user.uid}/savedJobs/${job.id}`).update(job).then(
+            (evt) => {
+              resolve(true);
+            },
+            (err) => {
+              reject({status:'error'});
+            }
+          );
+        }else{
+          reject({status:'login'});
         }
-      );
+      });//current user
 
-    });
+    });//promise
+
   }
 
   deleteJob(id, userKey = 'mq') {
