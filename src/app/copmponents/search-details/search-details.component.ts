@@ -42,5 +42,4 @@ export class SearchDetailsComponent implements OnInit {
       autohide: true
     });
   }
-
 }

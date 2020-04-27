@@ -45,11 +45,11 @@ export class AuthService {
   /* Sign out */
   SignOut() {
     this.angularFireAuth
-
       .signOut();
   }
 
 
+<<<<<<< HEAD
 
   showCustomToast(msg, time, color) {
     this.toastService.show(msg, {
@@ -60,3 +60,18 @@ export class AuthService {
   }
 }
 
+=======
+  CurrentUser() {
+    return new Promise((resolve, reject) => {
+      this.angularFireAuth.onAuthStateChanged(function (user) {
+        if (user) {
+          resolve(user);
+        } else {
+          reject(null);
+        }
+      });
+    });
+  }
+
+}
+>>>>>>> df9d3694186028ef2166f9d2e90b667d99a2d0c4
