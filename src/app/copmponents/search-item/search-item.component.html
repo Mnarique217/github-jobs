@@ -9,6 +9,7 @@
             <p class="item-description-text underline">{{job.location}},{{job.type}}</p>
             <button type="button" class="btn bg-secondary-color color-white btn-sm radius" (click)="open(mymodal)">Read More</button>
             <button (click)="apply(job.how_to_apply)" type="button" class="btn bg-facebook-color  color-white btn-sm radius">Apply</button>
+            <button *ngIf="type === 'savedJob'" (click)="open(deleteJob)" type="button" class="btn btn-danger  color-white btn-sm radius">Remove</button>
         </div>
     </div>
 
@@ -24,5 +25,21 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+</ng-template>
+
+<ng-template #deleteJob let-modal> 
+    <div class="modal-header bg-primary-color text-white">
+        Job deletion
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span style="color: white;" aria-hidden="true"><strong>X</strong></span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Are you sure you want to <span class="text-danger">delete the saved job</span>?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
+        <button type="button" class="btn btn-outline-dark" (click)="removeItem();modal.close('Save click')">Ok</button>
     </div>
 </ng-template>

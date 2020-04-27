@@ -114,7 +114,6 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-
     let options = this.jobsService.getOptions();
     options.page = 1;
     let isParam = false;
@@ -124,12 +123,12 @@ export class SearchComponent implements OnInit {
       .subscribe(params => {
         if (params.key != undefined) {
           options.search = params.key;
-          this.keywords=params.key; 
+          this.keywords = params.key;
           isParam = true;
         }
         if (params.location != undefined) {
           options.location = params.location;
-          this.location=params.location; 
+          this.location = params.location;
           isParam = true;
         }
       });

@@ -27,6 +27,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchJobsFormComponent } from './copmponents/search-jobs-form/search-jobs-form.component';
+import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SearchJobsFormComponent } from './copmponents/search-jobs-form/search-j
     AboutComponent,
     ToastComponent,
     ContactComponent,
-    SearchJobsFormComponent
+    SearchJobsFormComponent,
+    SavedJobsComponent
   ],
   imports: [
     BrowserModule,

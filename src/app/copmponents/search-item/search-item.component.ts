@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FirebaseJobService } from 'src/app/Services/firebase/firebaseJobs.service';
 
 @Component({
   selector: 'app-search-item',
@@ -8,16 +9,28 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class SearchItemComponent implements OnInit {
 
-
   @Input('apply') applyUri = '';
   @Input('job') job;
+  @Input('type') type = ''; //types: savedJob, listJobItem
+  @Output() deleteJob = new EventEmitter();
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, public jobService : FirebaseJobService) {}
 
   ngOnInit(): void {
   }
 
   closeResult: string;
+
+  removeItem(){
+    if(this.type === "savedJob"){
+      this.jobService.deleteJob(this.job.id).then(response =>{
+        console.log("Eliminado");
+        this.deleteJob.emit(this.job.id)
+      }).catch(response =>{
+        console.log("Error al eliminar");
+      });
+    }
+  }
 
   open(content) {
 

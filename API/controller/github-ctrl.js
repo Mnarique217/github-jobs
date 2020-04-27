@@ -4,8 +4,19 @@ var router = express.Router();
 const request = require('request');
 const apiUri = 'https://jobs.github.com/positions';
 
+router.get('/positions/:id', (req, res) => {
+    let requestUri = `${apiUri}/${req.params.id}`;
+    console.log(requestUri);
 
-router.get('/positions', (req, res) => {
+    request(requestUri, { json: true }, (err, response, body) => {
+        if (err) {
+            res.json({ err });
+        }
+        res.json(body);
+    });
+});
+
+router.get('/positions/', (req, res) => {
     let concat = '?';
     let requestUri = apiUri;
 

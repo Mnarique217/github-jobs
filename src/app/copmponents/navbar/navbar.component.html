@@ -19,6 +19,9 @@
                 <li class="nav-item">
                     <a class="nav-link"routerLinkActive="active" [routerLink]="['contact']">Contact</a>
                 </li>
+                <li *ngIf="isLogged" class="nav-item">
+                    <a class="nav-link"routerLinkActive="active" [routerLink]="['savedJobs']">Saved jobs</a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <button type="button" class="btn btn-outline-light my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter">Sign in</button>
