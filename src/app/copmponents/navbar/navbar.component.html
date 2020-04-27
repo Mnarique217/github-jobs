@@ -24,10 +24,12 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <button type="button" class="btn btn-outline-light my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter">Sign in</button>
+                <button *ngIf="!isLogged" type="button" class="btn btn-outline-light my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalCenter"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;{{currentUser}}</button>
+                <button *ngIf="isLogged" type="button" disabled class="btn btn-outline-light my-2 my-sm-0" ><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;{{currentUser}}</button>
+                &nbsp;
+                <button *ngIf="isLogged" type="button" class="btn btn-danger my-2 my-sm-0" (click)="signOut()">Sign out</button>
             </form>
         </div>
     </div>
 </nav>
-
-<app-login></app-login>
+<app-login (logged)="checkLogin()"></app-login>

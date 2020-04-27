@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from 'rxjs';
-import { ToastService } from 'src/app/services/toast/toast.service';
+import { Router, CanActivate } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,7 @@ import { ToastService } from 'src/app/services/toast/toast.service';
 export class AuthService {
   userData: Observable<firebase.User>;
 
-  constructor(private angularFireAuth: AngularFireAuth,public toastService: ToastService) {
-    // this.userData = angularFireAuthState;
+  constructor(private angularFireAuth: AngularFireAuth) {
   }
 
   /* Sign up */
@@ -30,32 +29,13 @@ export class AuthService {
 
   /* Sign in */
   SignIn(email: string, password: string) {
-    this.angularFireAuth
-      .signInWithEmailAndPassword(email, password)
-      .then(res => {
-        console.log('Successfully signed in!');
-        this.showCustomToast('Welcome ' + email, 7000, 'bg-success color-white');
-      })
-      .catch(err => {
-        console.log('Something is wrong:', err.message);
-        this.showCustomToast('User not found', 7000, 'bg-danger color-white');
-      });
+    return this.angularFireAuth
+      .signInWithEmailAndPassword(email, password);
   }
 
   /* Sign out */
   SignOut() {
-    this.angularFireAuth
-      .signOut();
-  }
-
-
-
-  showCustomToast(msg, time, color) {
-    this.toastService.show(msg, {
-      classname: color,
-      delay: time,
-      autohide: true
-    });
+    return this.angularFireAuth.signOut();
   }
 
 
@@ -70,5 +50,32 @@ export class AuthService {
       });
     });
   }
+}
 
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LoggedInGuard implements CanActivate {
+  constructor(
+    private _router: Router,
+    private _authService: AuthService) { }
+
+  async canActivate() {
+    var result = false;
+    await this._authService.CurrentUser().then(user => {
+      
+      if (user !== null) {
+        // all ok, proceed navigation to routed component
+        result = true;console.log(user)
+      }
+      else {
+        // redirect to the homepage
+        this._router.navigate(['/home']);
+        // abort current navigation
+        result = false;
+      }
+    })
+    return result;
+  }
 }

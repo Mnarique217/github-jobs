@@ -40,19 +40,12 @@ export class RegisterComponent implements OnInit {
 
   writeUserData(): void{
     if(this.formValidation()){
-    this.db.database.ref('/users/' + this.username.value ).set({
-        email: this.email.value,
-        password: this.password.value,
-        address: this.address.value,
-        username: this.username.value,
-        city: this.city.value,
-        state: this.state.value,
-        zip : this.zip.value,
-        phone : this.phone.value
-      });
-      this.cleanForm();
-      this.showCustomToast('User Registered', 7000, 'bg-success color-white');
-      this.modal=false;
+      this.aFAuth.SignUp(this.email.value,this.password.value).then(user =>{
+        this.cleanForm();
+        this.showCustomToast('User Registered', 7000, 'bg-success color-white');
+        this.modal=false;
+      })
+      
     }else{
       this.alertMessage = "Missing fields, please complete the required information";
       this.alert=true;
