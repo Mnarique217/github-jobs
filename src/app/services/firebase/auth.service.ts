@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from 'rxjs';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   userData: Observable<firebase.User>;
 
-  constructor(private angularFireAuth: AngularFireAuth) {
+  constructor(private angularFireAuth: AngularFireAuth,public toastService: ToastService) {
     // this.userData = angularFireAuthState;
   }
 
@@ -30,13 +31,14 @@ export class AuthService {
   /* Sign in */
   SignIn(email: string, password: string) {
     this.angularFireAuth
-
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log('Successfully signed in!');
+        this.showCustomToast('Welcome ' + email, 7000, 'bg-success color-white');
       })
       .catch(err => {
         console.log('Something is wrong:', err.message);
+        this.showCustomToast('User not found', 7000, 'bg-danger color-white');
       });
   }
 
@@ -47,4 +49,14 @@ export class AuthService {
       .signOut();
   }
 
+
+
+  showCustomToast(msg, time, color) {
+    this.toastService.show(msg, {
+      classname: color,
+      delay: time,
+      autohide: true
+    });
+  }
 }
+

@@ -22,8 +22,8 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Username</label>
-                            <input [formControl]="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input [formControl]="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                 else.</small>
                         </div>
@@ -31,14 +31,13 @@
                             <label for="exampleInputPassword1">Password</label>
                             <input [formControl]="password" type="password" class="form-control" id="exampleInputPassword1">
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="signIn()">Sign in</button>
         </div>
       </div>
     </div>

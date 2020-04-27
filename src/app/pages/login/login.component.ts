@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import {AuthService} from "../../services/firebase/auth.service"
+
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,21 @@ import { FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   password = new FormControl('');
-  username = new FormControl('');
-  constructor() { 
+  email = new FormControl('');
+  constructor(private aFAuth:AuthService) { 
   }
 
   ngOnInit(): void {
 
   }
     
+  signIn(): void{
+    if(this.formValidation()){
+      this.aFAuth.SignIn(this.email.value,this.password.value);
+    }
+  }
+
+  formValidation(){
+    return (this.email.value != "" && this.password.value != "");
+}
 }
