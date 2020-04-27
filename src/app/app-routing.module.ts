@@ -11,13 +11,16 @@ import { LoggedInGuard } from './services/firebase/auth.service';
 
 
 const routes: Routes = [
+  
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'search', component: SearchComponent },
   { path: 'item', component: SearchItemComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'savedJobs', component: SavedJobsComponent, canActivate: [LoggedInGuard]},
+  { path: 'savedJobs', component: SavedJobsComponent, canActivate: [LoggedInGuard]},  
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
