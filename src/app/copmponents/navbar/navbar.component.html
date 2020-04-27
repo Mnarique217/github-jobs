@@ -19,6 +19,9 @@
                 <li class="nav-item">
                     <a class="nav-link"routerLinkActive="active" [routerLink]="['contact']">Contact</a>
                 </li>
+                <li *ngIf="isLogged" class="nav-item">
+                    <a class="nav-link"routerLinkActive="active" [routerLink]="['savedJobs']">Saved jobs</a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
