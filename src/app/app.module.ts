@@ -1,8 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireDatabaseModule} from 'angularfire2/database';
-
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -29,6 +26,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchJobsFormComponent } from './copmponents/search-jobs-form/search-jobs-form.component';
 import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
 
+
+
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+
+/* Services */
+import { AuthService } from './services/firebase/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +54,8 @@ import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
     SavedJobsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AppRoutingModule,
@@ -60,7 +67,7 @@ import { SavedJobsComponent } from './pages/saved-jobs/saved-jobs.component';
     FontAwesomeModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 
