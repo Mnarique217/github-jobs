@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
       this.aFAuth.SignUp(this.email.value, this.password.value).then(user => {
         this.cleanForm();
         this.showCustomToast('User Registered', 7000, 'bg-success color-white');
-        this.modalService.close();
       })
 
     } else {
