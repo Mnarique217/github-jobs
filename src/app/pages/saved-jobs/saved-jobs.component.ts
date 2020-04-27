@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseJobService } from 'src/app/Services/firebase/firebaseJobs.service';
+import { FirebaseJobService } from 'src/app/services/firebase/firebaseJobs.service';
 
 @Component({
   selector: 'app-saved-jobs',
