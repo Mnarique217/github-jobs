@@ -3,8 +3,7 @@ import { FormControl } from '@angular/forms';
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ToastService } from 'src/app/services/toast/toast.service';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireAuth } from "@angular/fire/auth";
-import {}
+import {AuthService} from "../../services/firebase/auth.service"
 
 @Component({
   selector: 'app-register',
@@ -26,7 +25,7 @@ export class RegisterComponent implements OnInit {
   alert=false;
   modal=true;
 
-  constructor(db: AngularFireDatabase,private modalService: NgbModal, public toastService: ToastService, private aFAuth: AngularFireAuth) { 
+  constructor(db: AngularFireDatabase,private modalService: NgbModal, public toastService: ToastService, private aFAuth:AuthService ) { 
     this.db = db;
   }
   
@@ -34,7 +33,9 @@ export class RegisterComponent implements OnInit {
   }
 
   async register(){
-    const result = await this.aFAuth.createUserWithEmailAndPassword(this.email.value, this.password.value);
+    //const result = await this.aFAuth.createUserWithEmailAndPassword(this.email.value, this.password.value);
+    const result = this.aFAuth.SignUp(this.email.value,this.password.value);
+    console.log(result);
     this.writeUserData();
   }
 
