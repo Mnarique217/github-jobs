@@ -2,6 +2,7 @@
     <h2>Saved jobs</h2>
     <p>Here you can find the jobs that you have saved</p>
     <div class="" *ngFor='let job of savedJobs'>
-        <app-search-item [type]="'savedJob'" [job]="job"></app-search-item>
+        <app-search-item [type]="'savedJob'" [job]="job" (deleteJob)="removeJob($event)"></app-search-item>
     </div>
 </div>
+

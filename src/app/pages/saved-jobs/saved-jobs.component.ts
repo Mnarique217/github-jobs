@@ -8,19 +8,23 @@ import { FirebaseJobService } from 'src/app/Services/firebase/firebaseJobs.servi
 })
 export class SavedJobsComponent implements OnInit {
 
+  showProgress : boolean;
   savedJobs: any = [];
-  constructor(public jobsService: FirebaseJobService) { }
+  constructor(public jobService: FirebaseJobService) { }
 
   ngOnInit(): void {
-    this.jobsService.getAllJobs().then(data => {
+    this.jobService.getAllJobs().then(data => {
       console.log(data);
       console.log(this.savedJobs);
       for (const iterator in data) {
         this.savedJobs.push(data[iterator]);
       }
     });
-    
   }
-
   
+  removeJob(id){
+    this.savedJobs = this.savedJobs.filter(x=>{
+      return x.id !== id;
+    })
+  }
 }

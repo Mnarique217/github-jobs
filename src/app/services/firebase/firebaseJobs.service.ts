@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database'
-import { resolve } from 'dns';
 
 @Injectable({ providedIn: 'root' })
 export class FirebaseJobService {
