@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import {AngularFireDatabase } from 'angularfire2/database'
 import { FormControl } from '@angular/forms';
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ToastService } from 'src/app/services/toast/toast.service';
-
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from "@angular/fire/auth";
+import {}
 
 @Component({
   selector: 'app-register',
@@ -34,14 +34,13 @@ export class RegisterComponent implements OnInit {
   }
 
   async register(){
-    const result = await this.aFAuth.auth.createUserWithEmailAndPassword(this.email.value, this.password.value);
-    this.writeUserData(result.user.uid);
+    const result = await this.aFAuth.createUserWithEmailAndPassword(this.email.value, this.password.value);
+    this.writeUserData();
   }
 
-  writeUserData(userID): void{
+  writeUserData(): void{
     if(this.formValidation()){
-    this.db.object('/users/' + this.username.value ).set({
-        id:userID,
+    this.db.database.ref('/users/' + this.username.value ).set({
         email: this.email.value,
         password: this.password.value,
         address: this.address.value,
