@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { FirebaseJobService } from 'src/app/Services/firebase/firebaseJobs.service';
+import { FirebaseJobService } from 'src/app/services/firebase/firebaseJobs.service';
 
 @Component({
   selector: 'app-search-item',

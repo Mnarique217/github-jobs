@@ -1,5 +1,21 @@
 {
   "projects": {
     "default": "youjob-charlie"
+  },
+  "targets": {
+    "alarmasactividades": {
+      "hosting": {
+        "jobs": [
+          "alarmasactividades"
+        ]
+      }
+    },
+    "youjob-charlie": {
+      "hosting": {
+        "jobs": [
+          "youjob-charlie"
+        ]
+      }
+    }
   }
 }

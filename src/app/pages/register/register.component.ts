@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ToastService } from 'src/app/services/toast/toast.service';
 import { AngularFireDatabase } from '@angular/fire/database';
+import {AuthService} from "../../services/firebase/auth.service"
 
 @Component({
   selector: 'app-register',
@@ -24,16 +25,23 @@ export class RegisterComponent implements OnInit {
   alert=false;
   modal=true;
 
-  constructor(db: AngularFireDatabase,private modalService: NgbModal, public toastService: ToastService) { 
+  constructor(db: AngularFireDatabase,private modalService: NgbModal, public toastService: ToastService, private aFAuth:AuthService ) { 
     this.db = db;
   }
   
   ngOnInit(): void {
   }
 
+  async register(){
+    //const result = await this.aFAuth.createUserWithEmailAndPassword(this.email.value, this.password.value);
+    const result = this.aFAuth.SignUp(this.email.value,this.password.value);
+    console.log(result);
+    this.writeUserData();
+  }
+
   writeUserData(): void{
     if(this.formValidation()){
-    this.db.object('/users/' + this.username.value ).set({
+    this.db.database.ref('/users/' + this.username.value ).set({
         email: this.email.value,
         password: this.password.value,
         address: this.address.value,
