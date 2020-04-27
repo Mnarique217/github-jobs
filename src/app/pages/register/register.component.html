@@ -3,8 +3,8 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">YouJob - Registration</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalCenter">YouJob - Registration</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -23,12 +23,11 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputUsername">Username</label>
-                                        <input [formControl]="username" placeholder="Username" type="text" class="form-control" id="inputUsername">
+                                        <input [formControl]="username" placeholder="Username" type="text" class="form-control" id="inputUsername" >
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Password</label>
-                                        <input [formControl]="password" type="password" class="form-control" id="inputPassword4"
-                                            placeholder="Password">
+                                        <input [formControl]="password" type="password" class="form-control" id="inputPassword4">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -72,11 +71,8 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Alert :</strong> You should check in on some of those fields below.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
+                                <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{alertMessage}}.
                                   </div>
                             </form>
                         </div>
