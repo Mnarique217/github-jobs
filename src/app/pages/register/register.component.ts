@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
 
   async register(){
     //const result = await this.aFAuth.createUserWithEmailAndPassword(this.email.value, this.password.value);
-    const result = this.aFAuth.SignUp(this.email.value,this.password.value);
+    this.aFAuth.SignUp(this.email.value,this.password.value);
     this.writeUserData();
   }
 
